@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rogers México | Redes, Mantenimiento y TV</title>
+    <meta name="description"
+        content="Soluciones avanzadas en instalación de redes, repetidores Wi-Fi, mantenimiento de cómputo y antenas de TV abierta en México.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #003087;
+            --deep-blue: #001f5c;
+            --accent-red: #DA291C;
+            --accent-cyan: #00A3E0;
+            --text-light: #f4f7f6;
+            --text-dark: #333333;
+            --bg-glass: rgba(255, 255, 255, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 31, 92, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .logo span {
+            color: var(--accent-cyan);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        #home {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 31, 92, 0.7), rgba(0, 31, 92, 0.7)), url('/home/dev/.gemini/antigravity/brain/19def2b1-84c5-4e0a-ab11-6f5b43663010/rogers_hero_networking_1771972046250.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 5%;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(218, 41, 28, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(218, 41, 28, 0.5);
+            background: #b52217;
+        }
+
+        /* Section Generic */
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--deep-blue);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-cyan);
+        }
+
+        /* Conócenos */
+        #conocenos .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Carousel */
+        #promociones {
+            background: var(--deep-blue);
+            color: white;
+            overflow: hidden;
+        }
+
+        .section-title.white h2 {
+            color: white;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: var(--accent-cyan);
+        }
+
+        /* Productos y Servicios */
+        #servicios .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .service-box {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .service-box:hover {
+            transform: scale(1.02);
+        }
+
+        .service-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-info {
+            padding: 2rem;
+        }
+
+        /* Details Overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 31, 92, 0.95);
+            z-index: 2000;
+            padding: 5% 10%;
+            overflow-y: auto;
+            color: white;
+        }
+
+        .overlay-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--accent-cyan);
+        }
+
+        .isp-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .isp-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .isp-card:hover {
+            transform: translateY(-5px);
+            border: 2px solid var(--accent-cyan);
+        }
+
+        .isp-card p {
+            color: var(--text-dark);
+            font-weight: 700;
+            margin-top: 10px;
+            font-size: 0.8rem;
+        }
+
+        .isp-icon {
+            height: 50px;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        /* ISP Colors */
+        .bg-izzi {
+            background-color: #f70a8d;
+        }
+
+        .bg-infinitum {
+            background-color: #0087c3;
+        }
+
+        .bg-megacable {
+            background-color: #005aa3;
+        }
+
+        .bg-totalplay {
+            background-color: #eb2027;
+        }
+
+        /* Contacto */
+        #contacto {
+            background: #f0f4f8;
+        }
+
+        .contact-flex {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1.5;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #eee;
+            border-radius: 5px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-cyan);
+        }
+
+        footer {
+            background: var(--deep-blue);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 3rem 10%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-flex {
+                flex-direction: column;
+            }
+
+            #conocenos .grid,
+            #servicios .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .carousel-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 3rem !important;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--deep-blue);
+                display: none;
+                flex-direction: column;
+                padding: 1rem;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="#home" class="logo">
+            ROGERS <span>México</span>
+        </a>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#home" onclick="toggleMenu()">Inicio</a></li>
+                <li><a href="#conocenos" onclick="toggleMenu()">Conócenos</a></li>
+                <li><a href="#promociones" onclick="toggleMenu()">Ofertas</a></li>
+                <li><a href="#servicios" onclick="toggleMenu()">Servicios</a></li>
+                <li><a href="#contacto" onclick="toggleMenu()">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="hero-content">
+            <h1>Expertos en Conectividad</h1>
+            <p>Soluciones integrales de red, mantenimiento y televisión para tu hogar y negocio.</p>
+            <a href="#servicios" class="btn-primary">Ver Servicios</a>
+        </div>
+    </section>
+
+    <section id="conocenos">
+        <div class="section-title">
+            <h2>Conócenos</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>Misión</h3>
+                <p>Brindar soluciones tecnológicas de alta calidad que conecten y potencien a las familias y negocios en
+                    México.</p>
+            </div>
+            <div class="card">
+                <h3>Visión</h3>
+                <p>Ser el referente líder en servicios de infraestructura de red y mantenimiento técnico, impulsando la
+                    vanguardia digital.</p>
+            </div>
+            <div class="card">
+                <h3>Valores</h3>
+                <p>Compromiso, Innovación, Confianza y Excelencia en cada una de nuestras instalaciones y
+                    mantenimientos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="promociones">
+        <div class="section-title white">
+            <h2>Ofertas Mensuales</h2>
+        </div>
+        <div class="carousel-container">
+            <div class="carousel-track" id="track">
+                <div class="carousel-item">
+                    <div class="carousel-text">
+                        <h3>Mantenimiento Preventivo</h3>
+                        <p>20% de descuento en limpieza y optimización de sistemas de cómputo durante todo el mes.</p>
+                        <br>
+                        <a href="#contacto" class="btn-primary">Aprovechar</a>
+                    </div>
+                    <img src="/home/dev/.gemini/antigravity/brain/19def2b1-84c5-4e0a-ab11-6f5b43663010/computer_maintenance_service_1771972089608.png"
+                        alt="Mantenimiento">
+                </div>
+                <!-- Duplicate for carousel effect logic -->
+                <div class="carousel-item">
+                    <div class="carousel-text">
+                        <h3>Redes Residenciales</h3>
+                        <p>Instalación profesional de repetidores Wi-Fi con diagnóstico de cobertura gratuito.</p>
+                        <br>
+                        <a href="#contacto" class="btn-primary">Saber más</a>
+                    </div>
+                    <img src="/home/dev/.gemini/antigravity/brain/19def2b1-84c5-4e0a-ab11-6f5b43663010/wifi_extender_sleek_1771972075747.png"
+                        alt="WiFi">
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <div class="dot active" onclick="moveCarousel(0)"></div>
+                <div class="dot" onclick="moveCarousel(1)"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios">
+        <div class="section-title">
+            <h2>Productos y Servicios</h2>
+        </div>
+        <div class="grid">
+            <div class="service-box" onclick="showOverlay('tv')">
+                <div class="service-img"
+                    style="background-image: url('/home/dev/.gemini/antigravity/brain/19def2b1-84c5-4e0a-ab11-6f5b43663010/antenna_installation_demo_1771972060830.png')">
+                </div>
+                <div class="service-info">
+                    <h3>Antena de TV Abierta</h3>
+                    <p>Sintoniza tus canales favoritos con la mejor calidad HD sin mensualidades.</p>
+                </div>
+            </div>
+            <div class="service-box" onclick="showOverlay('wifi')">
+                <div class="service-img"
+                    style="background-image: url('/home/dev/.gemini/antigravity/brain/19def2b1-84c5-4e0a-ab11-6f5b43663010/wifi_extender_sleek_1771972075747.png')">
+                </div>
+                <div class="service-info">
+                    <h3>Wi-Fi y Redes</h3>
+                    <p>Elimina las zonas muertas y mejora la velocidad de tu internet en cada rincón.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="overlay-tv" class="overlay">
+        <div class="overlay-content">
+            <span class="close-btn" onclick="hideOverlay()">&times;</span>
+            <h2>Beneficios de la Antena TV Abierta</h2>
+            <p>Nuestra instalación asegura que recibas la señal más potente disponible en tu zona, permitiéndote
+                disfrutar de canales nacionales en alta definición de forma totalmente gratuita.</p>
+            <br>
+            <h3>¿Cómo funciona?</h3>
+            <p>Instalamos antenas de alto alcance en puntos estratégicos de tu inmueble, utilizando cableado blindado
+                para evitar interferencias.</p>
+            <br>
+            <h3>Instalación Correcta</h3>
+            <img src="/home/dev/.gemini/antigravity/brain/19def2b1-84c5-4e0a-ab11-6f5b43663010/antenna_installation_demo_1771972060830.png"
+                style="width:100%; border-radius:15px; margin-top:1rem;">
+        </div>
+    </div>
+
+    <div id="overlay-wifi" class="overlay">
+        <div class="overlay-content">
+            <span class="close-btn" onclick="hideOverlay()">&times;</span>
+            <h2>Optimización Wi-Fi</h2>
+            <p>Utilizamos extensores y repetidores de última generación para llevar la señal de tu módem a donde más la
+                necesitas.</p>
+            <br>
+            <h3>¿Quién es tu proveedor de Internet?</h3>
+            <p>Selecciona tu proveedor para personalizar tu solución:</p>
+            <div class="isp-grid">
+                <div class="isp-card" onclick="selectISP('izzi')">
+                    <div class="isp-icon bg-izzi"></div>
+                    <p>IZZI</p>
+                </div>
+                <div class="isp-card" onclick="selectISP('infinitum')">
+                    <div class="isp-icon bg-infinitum"></div>
+                    <p>INFINITUM</p>
+                </div>
+                <div class="isp-card" onclick="selectISP('megacable')">
+                    <div class="isp-icon bg-megacable"></div>
+                    <p>MEGACABLE</p>
+                </div>
+                <div class="isp-card" onclick="selectISP('totalplay')">
+                    <div class="isp-icon bg-totalplay"></div>
+                    <p>TOTALPLAY</p>
+                </div>
+            </div>
+            <div id="isp-message"
+                style="margin-top:20px; text-align:center; font-weight:600; color: var(--accent-cyan);"></div>
+            <br>
+            <div style="text-align:center;">
+                <a href="#contacto" class="btn-primary" onclick="hideOverlay()">Contáctanos</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="contacto">
+        <div class="section-title">
+            <h2>Contacto</h2>
+        </div>
+        <div class="contact-flex">
+            <div class="contact-info">
+                <h3>¿Listo para conectar?</h3>
+                <p>Nuestros técnicos certificados están listos para ayudarte con tus necesidades de red y tecnología.
+                </p>
+                <br>
+                <p><strong>Teléfono:</strong> +52 55 1234 5678</p>
+                <p><strong>Email:</strong> contacto@rogersmexico.com.mx</p>
+                <p><strong>Ubicación:</strong> Ciudad de México, México</p>
+            </div>
+            <div class="contact-form">
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" placeholder="Tu nombre">
+                </div>
+                <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" placeholder="email@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label>Servicio de Interés</label>
+                    <input type="text" placeholder="Ej: Instalación Wi-Fi">
+                </div>
+                <div class="form-group">
+                    <label>Mensaje</label>
+                    <textarea rows="4" placeholder="¿En qué podemos ayudarte?"></textarea>
+                </div>
+                <button class="btn-primary" style="border:none; width:100%; cursor:pointer;">Enviar Mensaje</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Rogers México. Todos los derechos reservados. | Diseño y Conectividad de Clase Mundial.</p>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        function toggleMenu() {
+            if (window.innerWidth <= 992) {
+                navMenu.classList.remove('active');
+            }
+        }
+
+        function moveCarousel(index) {
+            const track = document.getElementById('track');
+            const dots = document.querySelectorAll('.dot');
+            if (track) track.style.transform = `translateX(-${index * 100}%)`;
+
+            dots.forEach(dot => dot.classList.remove('active'));
+            if (dots[index]) dots[index].classList.add('active');
+        }
+
+        // Auto move carousel
+        let currentSlide = 0;
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % 2;
+            moveCarousel(currentSlide);
+        }, 5000);
+
+        function showOverlay(type) {
+            document.getElementById(`overlay-${type}`).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideOverlay() {
+            document.querySelectorAll('.overlay').forEach(el => el.style.display = 'none');
+            document.body.style.overflow = 'auto';
+        }
+
+        function selectISP(isp) {
+            const msg = document.getElementById('isp-message');
+            msg.innerText = `¡Excelente! Tenemos equipos especializados compatibles con ${isp.toUpperCase()}.`;
+        }
+    </script>
+</body>
+
+</html>
+</body>
+
+</html>
